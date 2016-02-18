@@ -1,5 +1,5 @@
 -module(mobius).
--export([is_prime/1, prime_factors/1, is_square_multiple/1, find_duplication/2]).
+-export([is_prime/1, prime_factors/1, is_square_multiple/1, find_duplication/2, find_square_multiples/2,test_find_square/1]).
 
 is_prime(N) ->
 is_prime_sub_func(N, trunc(math:sqrt(N))). %% trunc - усечение float
@@ -24,3 +24,18 @@ find_duplication(X, Y) ->
         X =/= Y -> true;
         true -> false
     end.
+
+find_square_multiples(Count, MaxN) ->
+    find_square_multiples_sub_func(Count, MaxN, []).
+
+find_square_multiples_sub_func(Count, ToTest, Found) when erlang:length(Found) == Count  ->  ToTest+1;
+find_square_multiples_sub_func(_, 2, _) -> fail;
+find_square_multiples_sub_func(Count, ToTest, Found) ->
+    case is_square_multiple(ToTest) of 
+        true -> NewFound = Found ++ [ToTest];
+        _ -> NewFound = []
+    end,
+
+find_square_multiples_sub_func(Count, ToTest-1, NewFound).
+
+test_find_square(N) -> timer:tc(mobius,find_square_multiples, [N, 30000]).
