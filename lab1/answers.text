@@ -2,10 +2,10 @@ Task 1.5.a: При N = 40. Нет рекурсии.
 
 Task 1.5.b: 10861 микросекунд. Есть рекурсия.
 
-Task 2.6: (число, время работы в микросекундах)
-mobius:test_find_square(4).    
-{24846,29887}
-42> mobius:test_find_square(5).
-{151396,29348}
-43> mobius:test_find_square(6).
-{1209639,24647}
+Task 2.6: (время работы в микросекундах, число)
+32> mobius:test_find_square(4).
+{1244,242}
+33> mobius:test_find_square(5).
+{8000,844}
+34> mobius:test_find_square(6).
+{2201209,22020

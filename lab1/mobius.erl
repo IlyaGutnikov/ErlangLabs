@@ -26,16 +26,15 @@ find_duplication(X, Y) ->
     end.
 
 find_square_multiples(Count, MaxN) ->
-    find_square_multiples_sub_func(Count, MaxN, []).
+    find_square_multiples_sub_func(Count, 2, MaxN, 0).
 
-find_square_multiples_sub_func(Count, ToTest, Found) when erlang:length(Found) == Count  ->  ToTest+1;
-find_square_multiples_sub_func(_, 2, _) -> fail;
-find_square_multiples_sub_func(Count, ToTest, Found) ->
-    case is_square_multiple(ToTest) of 
-        true -> NewFound = Found ++ [ToTest];
-        _ -> NewFound = []
-    end,
-
-find_square_multiples_sub_func(Count, ToTest-1, NewFound).
+find_square_multiples_sub_func(Count, CurNum, _, Count) -> CurNum - Count;
+find_square_multiples_sub_func(Count, CurNum, MaxN, _) 
+	when CurNum >= MaxN + Count -> fail; 
+find_square_multiples_sub_func(Count, CurNum, MaxN, CurCount) ->
+case is_square_multiple(CurNum) of
+	true -> find_square_multiples_sub_func(Count, CurNum + 1, MaxN, CurCount + 1);
+	false -> find_square_multiples_sub_func(Count, CurNum + 1, MaxN, 0)
+end.
 
 test_find_square(N) -> timer:tc(mobius,find_square_multiples, [N, 30000]).
