@@ -1,68 +1,72 @@
 -module(rss_queue).
-
--include_lib("xmerl/include/xmerl.hrl").
--import(xmerl_xpath, [string/2]).
-
+-include("logging.hrl").
 -compile(export_all).
 -define(TIMEOUT,10000).
-   
+
+init([])->
+  start().
+
+%% @doc Функция должна возвращать PID созданного процесса
+start()->
+  Q = [],
+  spawn(?MODULE,server,[Q,sets:new()]).
+
+%% @doc реализован цикл сервера процесса очереди RSS   
 server(Q,Subs)->
   receive
+
+%% @doc регистрация новых элементов в очереди
     {add_item,RSSItem} ->
-      NewQ = add_item_to_q(RSSItem,Q,Subs),
-      server(NewQ,Subs);
+      NewQ = add_item_to_q(RSSItem,Q,Subs) 
+      ,server(NewQ,Subs);
 
+%% @doc Другой процесс может отправить это сообщение очереди RSS,
+%% чтобы получить все содержимое очереди.
     {get_all,ReqPid} ->
-      ReqPid ! {self(),Q},
-      server(Q,Subs);
-
+      ReqPid ! {self(),Q}
+      ,?INFO("Sent rss items to ~p~n",[ReqPid]) 
+      ,server(Q,Subs);
     _Msg -> io:format("Unknown msg~p~n",[_Msg])  
   end.
 
-start()-> Q = [],spawn(?MODULE,server,[Q,sets:new()]).
-
-%start(Url)-> QPid = start() ,rss_reader:start(Url,QPid) ,QPid.
-
-init([])-> start().
-
-%init([Url])-> start(Url).
-
+%% @doc упрощает процедуру отправки элемента в очередь
 add_item(QPid,Item)->
-  QPid ! {add_item,Item},
-  ok.
+  QPid ! {add_item,Item}
+  ,ok.
 
-add_item_to_q(NewItem,L1,[],Subs)->
-  broadcast(NewItem,Subs)
-  ,L1++[NewItem];
+%% @doc Эта функция должна извлекать все элементы из документа ленты, 
+%% и отправлять все элементы по порядку в очередь
+add_feed(QPid,RSS2Feed) when is_pid(QPid) ->
+ Items=rss_parse:get_feed_items(RSS2Feed)
+ ,[add_item(QPid,Item) || Item <- Items]
+ ,?INFO("Added N=~p items from the feed to ~p ~n",[length(Items),QPid]) 
+ , ok.
 
-add_item_to_q(NewItem,L1,L=[OldItem|Rest],Subs)->
-  case rss_parse:compare_feed_items(OldItem,NewItem) of
-    same -> 
-      L1++L ;
-    updated -> 
-       broadcast(NewItem,Subs), L1++Rest++[NewItem] ;
-    different -> 
-      add_item_to_q(NewItem,L1++[OldItem],Rest,Subs)
-  end.
-add_item_to_q(NewItem,Q,Subs)-> add_item_to_q(NewItem,[],Q,Subs).
-
-add_feed(QPid,RSS2Feed)->
- Items=rss_parse:get_feed_items(RSS2Feed),
- [add_item(QPid,Item) || Item <- Items], 
- ok.
-
-add_feed_from_file(QPid,File)->
- Items=rss_parse:get_feed_items_test(File),
- [add_item(QPid,Item) || Item <- Items], 
- ok.
-
-get_all(QPid)->
+%% @doc упрощает процедуру получения списка элементов ленты от процесса
+get_all(QPid) when is_pid(QPid)->
   QPid!{get_all,self()}
   ,receive
-    {QPid,Q} -> Q;
+    {QPid,Q} -> Q ;
     _Msg -> {error,unknown_msg,_Msg}
    after 
     ?TIMEOUT -> {error,timeout}
   end.
 
-broadcast(Item,PidSet)-> [ add_item(Pid,Item) || Pid <- sets:to_list(PidSet) ]. 
+%% @doc добавление нового элемента в очередь
+add_item_to_q(NewItem,L1,[])->
+  ?INFO("New item ~p ~n",[self()])
+  ,L1++[NewItem];
+%% @doc обновление элемента
+add_item_to_q(NewItem,L1,L=[OldItem|Rest])->
+  case rss_parse:compare_feed_items(OldItem,NewItem) of
+    same -> 
+      L1++L ;
+    updated -> 
+      ?INFO("Updated item ~p ~n",[self()])
+      ,L1++Rest++[NewItem] ;
+    different -> 
+      add_item_to_q(NewItem,L1++[OldItem],Rest)
+  end.
+  
+add_item_to_q(NewItem,Q)->
+  add_item_to_q(NewItem,[],Q).
