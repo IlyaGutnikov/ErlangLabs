@@ -1,0 +1,12 @@
+3> rss_queue:start().
+<0.47.0>
+4> rss_queue:test("digg-science-rss1.xml").
+
+=INFO REPORT==== 24-Apr-2016::19:39:42 ===
+rss_queue <0.33.0>:  Added N=40 items from the feed to <0.33.0> 
+ok
+5> rss_queue:test("digg-science-rss2.xml").
+
+=INFO REPORT==== 24-Apr-2016::19:42:17 ===
+rss_queue <0.33.0>:  Added N=40 items from the feed to <0.33.0> 
+ok

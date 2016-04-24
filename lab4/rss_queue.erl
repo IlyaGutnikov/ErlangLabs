@@ -12,20 +12,20 @@ start()->
   spawn(?MODULE,server,[Q,sets:new()]).
 
 %% @doc реализован цикл сервера процесса очереди RSS   
-server(Q,Subs)->
+server(Q)->
   receive
 
 %% @doc регистрация новых элементов в очереди
     {add_item,RSSItem} ->
-      NewQ = add_item_to_q(RSSItem,Q,Subs) 
-      ,server(NewQ,Subs);
+      NewQ = add_item_to_q(RSSItem,Q) 
+      ,server(NewQ);
 
 %% @doc Другой процесс может отправить это сообщение очереди RSS,
 %% чтобы получить все содержимое очереди.
     {get_all,ReqPid} ->
       ReqPid ! {self(),Q}
       ,?INFO("Sent rss items to ~p~n",[ReqPid]) 
-      ,server(Q,Subs);
+      ,server(Q);
     _Msg -> io:format("Unknown msg~p~n",[_Msg])  
   end.
 
@@ -70,3 +70,8 @@ add_item_to_q(NewItem,L1,L=[OldItem|Rest])->
   
 add_item_to_q(NewItem,Q)->
   add_item_to_q(NewItem,[],Q).
+
+%% @doc функция тестирования лабы
+test(RSSFile) ->
+	{XML, _} = xmerl_scan:file(RSSFile),
+	add_feed(self(), XML).
