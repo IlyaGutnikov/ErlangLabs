@@ -39,7 +39,7 @@ server(Url,QPid)->
             after ?RETRIEVE_INTERVAL -> 
               server(Url,QPid)
             end;
-        _ -> {error,not_rss2_feed}
+        _ -> erlang:exit(not_rss2_feed)
         end ; 
-    _ -> {error,Code}
+    _ -> erlang:exit(Code)
    end.
