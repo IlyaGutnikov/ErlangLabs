@@ -4,3 +4,5 @@
 
 `brew install erlang`
 `brew install yaws`
+
+Тогда путь будет вида: /usr/local/Cellar/yaws/2.0/lib/yaws-2.0/ebin/
