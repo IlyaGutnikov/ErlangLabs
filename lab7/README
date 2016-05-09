@@ -1,1 +1,6 @@
 Каталог задания #7
+
+Для Mac OS X лучше всего устанавливать через brew
+
+`brew install erlang`
+`brew install yaws`
