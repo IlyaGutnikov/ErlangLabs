@@ -1,0 +1,153 @@
+Eshell V7.3  (abort with ^G)
+1> rss_queue:start("http://rss.cnn.com/rss/cnn_topstories.rss").
+<0.35.0>
+2> 
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.47.0>:  Added N=49 items from the feed to <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:54 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:55 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:55 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:55 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:55 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:55 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:55 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:55 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:55 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:55 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:55 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:55 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:55 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:55 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:55 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:55 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
+
+=INFO REPORT==== 15-May-2016::23:09:55 ===
+rss_queue <0.35.0>:  New item <0.35.0> 
